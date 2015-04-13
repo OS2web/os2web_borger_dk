@@ -205,98 +205,90 @@ function os2web_borger_dk_form_alter(&$form, &$form_state, $form_id) {
             $body_text = (isset($form['body']['und']['0']['#entity']->body['und']['0']['value'])) ? $form['body']['und']['0']['#entity']->body['und']['0']['value'] : '';
 
             hide($form['body']);
+            $doc = new DOMDocument();
+            $doc->loadHTML('<?xml encoding="utf-8" ?>' . $body_text);
+            $xpath = new DOMXPath($doc);
 
-            // Link break: in windows \r\n, linux \n.
-            preg_match("/<\/div>\n/", $body_text, $link_break);
-            if (isset($link_break[0])) {
-              $div = preg_split("/\n<\/div>\n/", $body_text, -1, PREG_SPLIT_DELIM_CAPTURE);
-            }
-            else {
-              $div = preg_split('/\r\n<[\/]div>\r\n/', $body_text, -1, PREG_SPLIT_DELIM_CAPTURE);
-            }
+            $results = $xpath->query("//*[@class='microArticle']");
 
-            foreach ($div as $key => $text) {
-              $microno = $key + 1;
+            $microno = 0;
+            foreach ($results as $item) {
+              foreach ($item->getElementsByTagName('h2') as $articletitle) {
+                $title = trim($articletitle->nodeValue);
+              }
+
+              $text = '';
+              foreach ($item->getElementsByTagName('div')->item(0)->childNodes as $articletext) {
+                $text .= $doc->saveHTML($articletext);
+              }
+
+              $microno++;
               $checkboxno = 'os2web_borger_dk_micro_' . $microno;
               $h2_text_field = 'os2web_borger_dk_micro_h2_' . $microno;
               $text_area = 'os2web_borger_dk_micro_textarea_' . $microno;
 
-              // The last div is a link break.
-              if ($key != count($div) - 1) {
-                // Frist we get the microarticle title.
-                preg_match("/<h2 class=\"mArticle\" id=\"mArticle" . $microno . "\">(.*?)<\/h2>/", $div[$key], $match);
-                $h2 = isset($match[1]) ? $match[1] : '';
+              if ($microno >= 10) {
+                $weight = '6.' . ($microno - 10);
+              }
+              else {
+                $weight = '5.' . $microno;
+              }
+              // For each microarticle we build a fieldset, a textfield for
+              // title, a textarea for div content and a checkbox for
+              // visibility option.
+              $form['os2web_borger_dk_micro_settings_' . $microno] = array(
+                '#type' => 'fieldset',
+                '#weight' => $weight,
+              );
 
-                // Then we get the div content.
-                preg_match("/<div class=\"mArticle" . $microno . " mArticle\">(.*?)\r\n    <\/div>/s", $div[$key], $match2);
-                if (empty($match2[1])) {
-                  preg_match("/<div class=\"mArticle" . $microno . " mArticle\">(.*?)<\/div>    /s", $div[$key], $match2);
-                }
-                $micro_text = isset($match2[1]) ? $match2[1] : '';
-
-                if ($microno >= 10) {
-                  $weight = '6.' . ($microno - 10);
-                }
-                else {
-                  $weight = '5.' . $microno;
-                }
-                // For each microarticle we build a fieldset, a textfield for
-                // title, a textarea for div content and a checkbox for
-                // visibility option.
-                $form['os2web_borger_dk_micro_settings_' . $microno] = array(
-                  '#type' => 'fieldset',
-                  '#weight' => $weight,
+              $form['os2web_borger_dk_micro_settings_' . $microno][$h2_text_field] = array(
+                '#type' => 'textfield',
+                '#title' => t('Title of Microarticle') . ' ' . $microno,
+                '#default_value' => variable_get($h2_text_field, $title),
+              );
+              // If body (article text) visible/editable option is checked
+              // by ADMIN and EDITOR, then forms disabled is false.
+              if ($visible_items['body'] === "body" && $admin_display_fields['body'] === "body" && $value_editable['body'] === "body") {
+                $form['os2web_borger_dk_micro_settings_' . $microno][$text_area] = array(
+                  // '#title' => t('Microarticle ' . $microno),
+                  '#type' => 'textarea',
+                  '#default_value' => trim($text),
                 );
 
-                $form['os2web_borger_dk_micro_settings_' . $microno][$h2_text_field] = array(
-                  '#type' => 'textfield',
-                  '#title' => t('Title of Microarticle') . ' ' . $microno,
-                  '#default_value' => variable_get($h2_text_field, $h2),
+                $form['os2web_borger_dk_micro_settings_' . $microno][$checkboxno] = array(
+                  '#type' => 'checkbox',
+                  '#title' => t('Visible'),
+                  '#description' => t("Check to display this microarticle"),
+                  '#default_value' => isset($field_microarticle_settings[$microno]) ? $field_microarticle_settings[$microno] : 1,
                 );
-                // If body (article text) visible/editable option is checked
-                // by ADMIN and EDITOR, then forms disabled is false.
-                if ($visible_items['body'] === "body" && $admin_display_fields['body'] === "body" && $value_editable['body'] === "body") {
-                  $form['os2web_borger_dk_micro_settings_' . $microno][$text_area] = array(
-                    // '#title' => t('Microarticle ' . $microno),
-                    '#type' => 'textarea',
-                    '#default_value' => $micro_text,
-                  );
-
+              }
+              // If body (article text) display option is UNCHECKED
+              // by ADMIN or EDITOR, then forms disabled is TRUE.
+              else {
+                $form['os2web_borger_dk_micro_settings_' . $microno][$text_area] = array(
+                  '#title' => t('Microarticle') . ' ' . $microno,
+                  '#type' => 'textarea',
+                  '#disabled' => TRUE,
+                  '#default_value' => trim($text),
+                  '#description' => t("Please check 'Article text' visible option below in 'Toggle display', or in OS2web borger.dk Settings (Toggle display/Editable article fields) to show/edit this microarticle."),
+                );
+                // If this microarticle is NOT editable.
+                if ($value_editable['body'] !== "body") {
                   $form['os2web_borger_dk_micro_settings_' . $microno][$checkboxno] = array(
                     '#type' => 'checkbox',
-                    '#title' => t('Visible'),
+                    '#title' => t('Microarticle Visibility'),
                     '#description' => t("Check to display this microarticle"),
                     '#default_value' => isset($field_microarticle_settings[$microno]) ? $field_microarticle_settings[$microno] : 1,
                   );
                 }
-                // If body (article text) display option is UNCHECKED
-                // by ADMIN or EDITOR, then forms disabled is TRUE.
                 else {
-                  $form['os2web_borger_dk_micro_settings_' . $microno][$text_area] = array(
-                    '#title' => t('Microarticle') . ' ' . $microno,
-                    '#type' => 'textarea',
+                  $form['os2web_borger_dk_micro_settings_' . $microno][$checkboxno] = array(
+                    '#type' => 'checkbox',
+                    '#title' => t('Microarticle Visibility'),
                     '#disabled' => TRUE,
-                    '#default_value' => $micro_text,
-                    '#description' => t("Please check 'Article text' visible option below in 'Toggle display', or in OS2web borger.dk Settings (Toggle display/Editable article fields) to show/edit this microarticle."),
+                    '#description' => t("Check to display this microarticle"),
+                    '#default_value' => isset($field_microarticle_settings[$microno]) ? $field_microarticle_settings[$microno] : 1,
                   );
-                  // If this microarticle is NOT editable.
-                  if ($value_editable['body'] !== "body") {
-                    $form['os2web_borger_dk_micro_settings_' . $microno][$checkboxno] = array(
-                      '#type' => 'checkbox',
-                      '#title' => t('Microarticle Visibility'),
-                      '#description' => t("Check to display this microarticle"),
-                      '#default_value' => isset($field_microarticle_settings[$microno]) ? $field_microarticle_settings[$microno] : 1,
-                    );
-                  }
-                  else {
-                    $form['os2web_borger_dk_micro_settings_' . $microno][$checkboxno] = array(
-                      '#type' => 'checkbox',
-                      '#title' => t('Microarticle Visibility'),
-                      '#disabled' => TRUE,
-                      '#description' => t("Check to display this microarticle"),
-                      '#default_value' => isset($field_microarticle_settings[$microno]) ? $field_microarticle_settings[$microno] : 1,
-                    );
-                  }
                 }
               }
             }
@@ -634,26 +626,31 @@ function os2web_borger_dk_node_view($node, $view_mode, $langcode) {
           if ($content_field == 'body' && !empty($field_microarticle_settings)) {
             $body_text = $node->body['und']['0']['value'];
 
-            // Link break in body_text: in windows \r\n, linux \n.
-            preg_match("/<\/div>\n/", $body_text, $link_break);
-            if (isset($link_break[0])) {
-              $div = preg_split("/\n<\/div>\n/", $body_text, -1, PREG_SPLIT_DELIM_CAPTURE);
-            }
-            else {
-              $div = preg_split('/\r\n<[\/]div>\r\n/', $body_text, -1, PREG_SPLIT_DELIM_CAPTURE);
-            }
-            $show_div = '';
-            foreach ($div as $key => $text) {
-              $microno = $key + 1;
+            $doc = new DOMDocument();
+            $doc->loadHTML('<?xml encoding="utf-8" ?>' . $body_text);
+            $xpath = new DOMXPath($doc);
+
+            $results = $xpath->query("//*[@class='microArticle']");
+
+            $microno = 0;
+            foreach ($results as $item) {
+              foreach ($item->getElementsByTagName('h2') as $articletitle) {
+                $title = trim($articletitle->nodeValue);
+              }
+
+              $text = '';
+              foreach ($item->getElementsByTagName('div')->item(0)->childNodes as $articletext) {
+                $text .= $doc->saveHTML($articletext);
+              }
+              $show_div = '';
+
+              $microno++;
               $checkboxno = 'os2web_borger_dk_micro_' . $microno;
-              // The last div is a link break \n or \r\n.
-              if ($div[$key] != $div[(count($div) - 1)]) {
-                // If editor set this microarticle to be visible,(TRUE)
-                if ($field_microarticle_settings[$microno] != 0) {
-                  $show_div .= $div[$key];
-                  $show_div .= "\n</div>";
-                  $show_div .= "\n";
-                }
+              // If editor set this microarticle to be visible,(TRUE)
+              if ($field_microarticle_settings[$microno] != 0) {
+                $show_div .= $div[$key];
+                $show_div .= "\n</div>";
+                $show_div .= "\n";
               }
             }
             // Content body shows only visible microarticles/ part of body_text.
@@ -918,41 +915,36 @@ function os2web_borger_dk_node_submit(&$node, $form, &$form_state) {
         $field_microarticle_settings = array();
         $body_text = isset($node->body['und'][0]['value']) ? $node->body['und'][0]['value'] : '';
 
-        // "Link break": in windows \r\n, linux \n.
-        preg_match("/<\/div>\n/", $body_text, $link_break);
-        if (isset($link_break[0])) {
-          $div = preg_split("/\n<\/div>\n/", $body_text, -1, PREG_SPLIT_DELIM_CAPTURE);
-        }
-        else {
-          $div = preg_split('/\r\n<[\/]div>\r\n/', $body_text, -1, PREG_SPLIT_DELIM_CAPTURE);
-        }
-
         $article_text = '';
-        foreach ($div as $key => $text) {
-          preg_match("/<div class=\"microArticle\" id=\"microArticle(.*?)\">/s", $div[$key], $match_id);
-          $micro_id = (isset($match_id[1]) ? $match_id[1] : '');
-          $microno = $key + 1;
+
+        $doc = new DOMDocument();
+        $doc->loadHTML('<?xml encoding="utf-8" ?>' . $body_text);
+        $xpath = new DOMXPath($doc);
+
+        $results = $xpath->query("//*[@class='microArticle']");
+
+        $microno = 0;
+        foreach ($results as $item) {
+          $microno++;
+
           $checkboxno = 'os2web_borger_dk_micro_' . $microno;
           $h2_text_field = 'os2web_borger_dk_micro_h2_' . $microno;
           $text_area = 'os2web_borger_dk_micro_textarea_' . $microno;
 
-          // The last div contents a link break.
-          if ($key != (count($div) - 1)) {
-            $field_microarticle_settings[$microno] = $node->$checkboxno;
-            // Body text (Article text).
-            $article_text .= "<div class=\"microArticle\" id=\"microArticle" . $micro_id . "\">" . "\r\n";
+          $field_microarticle_settings[$microno] = $node->$checkboxno;
+          // Body text (Article text).
+          $article_text .= "<div class=\"microArticle\" id=\"microArticle" . $micro_id . "\">" . "\r\n";
 
-            $micro_h2 = "<h2 class=\"mArticle\" id=\"mArticle" . $microno . "\">";
-            $micro_h2 .= $node->$h2_text_field . "</h2>";
+          $micro_h2 = "<h2 class=\"mArticle\" id=\"mArticle" . $microno . "\">";
+          $micro_h2 .= $node->$h2_text_field . "</h2>";
 
-            $micro_content = "<div class=\"mArticle" . $microno . " mArticle\">";
-            $micro_content .= $node->$text_area . "\r\n    </div>";
+          $micro_content = "<div class=\"mArticle" . $microno . " mArticle\">";
+          $micro_content .= $node->$text_area . "\r\n    </div>";
 
-            $article_text .= $micro_h2 . "\r\n";
-            $article_text .= $micro_content;
-            $article_text .= "\r\n</div>\r\n\r\n";
-            // End of body text (Article text).
-          }
+          $article_text .= $micro_h2 . "\r\n";
+          $article_text .= $micro_content;
+          $article_text .= "\r\n</div>\r\n\r\n";
+          // End of body text (Article text).
         }
         $node->body['und'][0]['value'] = $article_text;
         $node->body['und'][0]['safe_value'] = $article_text;
