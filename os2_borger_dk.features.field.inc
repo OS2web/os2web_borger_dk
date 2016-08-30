@@ -1,17 +1,17 @@
 <?php
 /**
  * @file
- * os2web_borger_dk.features.field.inc
+ * os2_borger_dk.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function os2web_borger_dk_field_default_fields() {
+function os2_borger_dk_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-os2web_borger_dk_article-body'.
-  $fields['node-os2web_borger_dk_article-body'] = array(
+  // Exported field: 'node-os2_borger_dk_article-body'.
+  $fields['node-os2_borger_dk_article-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -40,7 +40,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => array(
         0 => array(
           'summary' => '',
@@ -130,14 +130,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_image'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_image'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_image'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_image'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_image',
+      'field_name' => 'field_os2_borger_dk_image',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -161,7 +161,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'image',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -189,7 +189,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_image',
+      'field_name' => 'field_os2_borger_dk_image',
       'label' => 'Billede',
       'required' => 0,
       'settings' => array(
@@ -231,14 +231,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_borgerurl'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_borgerurl'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_borgerurl'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_borgerurl'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_borgerurl',
+      'field_name' => 'field_os2_borger_dk_borgerurl',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -261,7 +261,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -286,7 +286,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_borgerurl',
+      'field_name' => 'field_os2_borger_dk_borgerurl',
       'label' => 'Borger.dk-URL',
       'required' => 0,
       'settings' => array(
@@ -343,14 +343,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_byline'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_byline'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_byline'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_byline'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_byline',
+      'field_name' => 'field_os2_borger_dk_byline',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -373,7 +373,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -399,7 +399,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_byline',
+      'field_name' => 'field_os2_borger_dk_byline',
       'label' => 'Byline',
       'required' => 0,
       'settings' => array(
@@ -456,14 +456,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_formterm'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_formterm'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_formterm'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_formterm'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_formterm',
+      'field_name' => 'field_os2_borger_dk_formterm',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -482,7 +482,7 @@ function os2web_borger_dk_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'os2web_borger_dk_form_menu',
+            'vocabulary' => 'os2_borger_dk_form_menu',
             'parent' => '0',
           ),
         ),
@@ -492,7 +492,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -517,7 +517,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_formterm',
+      'field_name' => 'field_os2_borger_dk_formterm',
       'label' => 'FORM Emneord',
       'required' => 0,
       'settings' => array(
@@ -537,14 +537,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_header'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_header'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_header'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_header'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_header',
+      'field_name' => 'field_os2_borger_dk_header',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -565,7 +565,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => array(
         0 => array(
           'value' => '',
@@ -596,7 +596,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_header',
+      'field_name' => 'field_os2_borger_dk_header',
       'label' => 'Header',
       'required' => 0,
       'settings' => array(
@@ -653,14 +653,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_legislati'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_legislati'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_legislati'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_legislati'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_legislati',
+      'field_name' => 'field_os2_borger_dk_legislati',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -681,7 +681,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => array(
         0 => array(
           'value' => '',
@@ -712,7 +712,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_legislati',
+      'field_name' => 'field_os2_borger_dk_legislati',
       'label' => 'Legislation',
       'required' => 0,
       'settings' => array(
@@ -769,14 +769,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_pagetitle'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_pagetitle'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_pagetitle'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_pagetitle'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_pagetitle',
+      'field_name' => 'field_os2_borger_dk_pagetitle',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -799,7 +799,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -825,7 +825,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_pagetitle',
+      'field_name' => 'field_os2_borger_dk_pagetitle',
       'label' => 'Page title',
       'required' => 0,
       'settings' => array(
@@ -882,14 +882,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_post_text'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_post_text'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_post_text'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_post_text'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_post_text',
+      'field_name' => 'field_os2_borger_dk_post_text',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -910,7 +910,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => array(
         0 => array(
           'value' => '',
@@ -940,7 +940,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_post_text',
+      'field_name' => 'field_os2_borger_dk_post_text',
       'label' => 'Post-text',
       'required' => 0,
       'settings' => array(
@@ -997,14 +997,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_pre_text'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_pre_text'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_pre_text'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_pre_text'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_pre_text',
+      'field_name' => 'field_os2_borger_dk_pre_text',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -1025,7 +1025,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => array(
         0 => array(
           'value' => '',
@@ -1056,7 +1056,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_pre_text',
+      'field_name' => 'field_os2_borger_dk_pre_text',
       'label' => 'Pre-text',
       'required' => 0,
       'settings' => array(
@@ -1113,14 +1113,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_recommend'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_recommend'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_recommend'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_recommend'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_recommend',
+      'field_name' => 'field_os2_borger_dk_recommend',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -1141,7 +1141,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => array(
         0 => array(
           'value' => '',
@@ -1172,7 +1172,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_recommend',
+      'field_name' => 'field_os2_borger_dk_recommend',
       'label' => 'Recommended',
       'required' => 0,
       'settings' => array(
@@ -1229,14 +1229,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_selfservi'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_selfservi'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_selfservi'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_selfservi'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_selfservi',
+      'field_name' => 'field_os2_borger_dk_selfservi',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -1257,7 +1257,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => array(
         0 => array(
           'value' => '',
@@ -1288,7 +1288,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_selfservi',
+      'field_name' => 'field_os2_borger_dk_selfservi',
       'label' => 'Portalservice/self-service',
       'required' => 0,
       'settings' => array(
@@ -1345,14 +1345,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_shortlist'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_shortlist'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_shortlist'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_shortlist'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_shortlist',
+      'field_name' => 'field_os2_borger_dk_shortlist',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -1373,7 +1373,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => array(
         0 => array(
           'value' => '',
@@ -1404,7 +1404,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_shortlist',
+      'field_name' => 'field_os2_borger_dk_shortlist',
       'label' => 'Shortlist',
       'required' => 0,
       'settings' => array(
@@ -1461,14 +1461,14 @@ function os2web_borger_dk_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-os2web_borger_dk_article-field_os2web_borger_dk_kle'.
-  $fields['node-os2web_borger_dk_article-field_os2web_borger_dk_kle'] = array(
+  // Exported field: 'node-os2_borger_dk_article-field_os2_borger_dk_kle'.
+  $fields['node-os2_borger_dk_article-field_os2_borger_dk_kle'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_os2web_borger_dk_kle',
+      'field_name' => 'field_os2_borger_dk_kle',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -1497,7 +1497,7 @@ function os2web_borger_dk_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'os2web_borger_dk_article',
+      'bundle' => 'os2_borger_dk_article',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -1522,7 +1522,7 @@ function os2web_borger_dk_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_os2web_borger_dk_kle',
+      'field_name' => 'field_os2_borger_dk_kle',
       'label' => 'KL Emneord',
       'required' => 0,
       'settings' => array(

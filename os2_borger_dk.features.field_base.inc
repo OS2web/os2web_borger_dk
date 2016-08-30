@@ -1,22 +1,22 @@
 <?php
 /**
  * @file
- * os2web_borger_dk.features.field_base.inc
+ * os2_borger_dk.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function os2web_borger_dk_field_default_field_bases() {
+function os2_borger_dk_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_os2web_borger_dk_image'
-  $field_bases['field_os2web_borger_dk_image'] = array(
+  // Exported field_base: 'field_os2_borger_dk_image'
+  $field_bases['field_os2_borger_dk_image'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_image',
+    'field_name' => 'field_os2_borger_dk_image',
     'foreign keys' => array(
       'fid' => array(
         'columns' => array(
@@ -40,13 +40,13 @@ function os2web_borger_dk_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_os2web_borger_dk_borgerurl'
-  $field_bases['field_os2web_borger_dk_borgerurl'] = array(
+  // Exported field_base: 'field_os2_borger_dk_borgerurl'
+  $field_bases['field_os2_borger_dk_borgerurl'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_borgerurl',
+    'field_name' => 'field_os2_borger_dk_borgerurl',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -69,13 +69,13 @@ function os2web_borger_dk_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_os2web_borger_dk_byline'
-  $field_bases['field_os2web_borger_dk_byline'] = array(
+  // Exported field_base: 'field_os2_borger_dk_byline'
+  $field_bases['field_os2_borger_dk_byline'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_byline',
+    'field_name' => 'field_os2_borger_dk_byline',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -98,13 +98,13 @@ function os2web_borger_dk_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_os2web_borger_dk_formterm'
-  $field_bases['field_os2web_borger_dk_formterm'] = array(
+  // Exported field_base: 'field_os2_borger_dk_formterm'
+  $field_bases['field_os2_borger_dk_formterm'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_formterm',
+    'field_name' => 'field_os2_borger_dk_formterm',
     'foreign keys' => array(
       'tid' => array(
         'columns' => array(
@@ -123,7 +123,7 @@ function os2web_borger_dk_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'os2web_borger_dk_form_menu',
+          'vocabulary' => 'os2_borger_dk_form_menu',
           'parent' => 0,
         ),
       ),
@@ -133,13 +133,13 @@ function os2web_borger_dk_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_os2web_borger_dk_header'
-  $field_bases['field_os2web_borger_dk_header'] = array(
+  // Exported field_base: 'field_os2_borger_dk_header'
+  $field_bases['field_os2_borger_dk_header'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_header',
+    'field_name' => 'field_os2_borger_dk_header',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -160,13 +160,13 @@ function os2web_borger_dk_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_os2web_borger_dk_legislati'
-  $field_bases['field_os2web_borger_dk_legislati'] = array(
+  // Exported field_base: 'field_os2_borger_dk_legislati'
+  $field_bases['field_os2_borger_dk_legislati'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_legislati',
+    'field_name' => 'field_os2_borger_dk_legislati',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -187,13 +187,13 @@ function os2web_borger_dk_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_os2web_borger_dk_pagetitle'
-  $field_bases['field_os2web_borger_dk_pagetitle'] = array(
+  // Exported field_base: 'field_os2_borger_dk_pagetitle'
+  $field_bases['field_os2_borger_dk_pagetitle'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_pagetitle',
+    'field_name' => 'field_os2_borger_dk_pagetitle',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -216,13 +216,13 @@ function os2web_borger_dk_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_os2web_borger_dk_post_text'
-  $field_bases['field_os2web_borger_dk_post_text'] = array(
+  // Exported field_base: 'field_os2_borger_dk_post_text'
+  $field_bases['field_os2_borger_dk_post_text'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_post_text',
+    'field_name' => 'field_os2_borger_dk_post_text',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -243,13 +243,13 @@ function os2web_borger_dk_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_os2web_borger_dk_pre_text'
-  $field_bases['field_os2web_borger_dk_pre_text'] = array(
+  // Exported field_base: 'field_os2_borger_dk_pre_text'
+  $field_bases['field_os2_borger_dk_pre_text'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_pre_text',
+    'field_name' => 'field_os2_borger_dk_pre_text',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -270,13 +270,13 @@ function os2web_borger_dk_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_os2web_borger_dk_recommend'
-  $field_bases['field_os2web_borger_dk_recommend'] = array(
+  // Exported field_base: 'field_os2_borger_dk_recommend'
+  $field_bases['field_os2_borger_dk_recommend'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_recommend',
+    'field_name' => 'field_os2_borger_dk_recommend',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -297,13 +297,13 @@ function os2web_borger_dk_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_os2web_borger_dk_selfservi'
-  $field_bases['field_os2web_borger_dk_selfservi'] = array(
+  // Exported field_base: 'field_os2_borger_dk_selfservi'
+  $field_bases['field_os2_borger_dk_selfservi'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_selfservi',
+    'field_name' => 'field_os2_borger_dk_selfservi',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -324,13 +324,13 @@ function os2web_borger_dk_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_os2web_borger_dk_shortlist'
-  $field_bases['field_os2web_borger_dk_shortlist'] = array(
+  // Exported field_base: 'field_os2_borger_dk_shortlist'
+  $field_bases['field_os2_borger_dk_shortlist'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_shortlist',
+    'field_name' => 'field_os2_borger_dk_shortlist',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -351,13 +351,13 @@ function os2web_borger_dk_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_os2web_borger_dk_kle'
-  $field_bases['field_os2web_borger_dk_kle'] = array(
+  // Exported field_base: 'field_os2_borger_dk_kle'
+  $field_bases['field_os2_borger_dk_kle'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_borger_dk_kle',
+    'field_name' => 'field_os2_borger_dk_kle',
     'foreign keys' => array(
       'tid' => array(
         'columns' => array(

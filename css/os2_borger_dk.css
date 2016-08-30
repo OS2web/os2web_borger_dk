@@ -28,14 +28,14 @@ div.microArticle a {
   padding: 0px 5px 10px 10px;
 }
 
-.os2web_borger_dk_selfservi {
+.os2_borger_dk_selfservi {
   clear: both;
   padding: 10px 15px;
   background-color: #d9e5c3;
   border-radius: 7px 7px 7px 7px;
 }
 
-.os2web_borger_dk_selfservi h3 {
+.os2_borger_dk_selfservi h3 {
   border-bottom: 1px solid #BBC5A8;
   color: #526A27;
   /*font-family: "myriad-pro",Arial,Helvetica,sans-serif;*/
@@ -44,7 +44,7 @@ div.microArticle a {
   padding-bottom: 5px;
 }
 
-.os2web_borger_dk_selfservi ul li a, .os2web_borger_dk_selfservi a:link{
+.os2_borger_dk_selfservi ul li a, .os2_borger_dk_selfservi a:link{
   color: #526A27;
   font-size: 13px;
   /*list-style-type: disc;
@@ -59,11 +59,11 @@ div.microArticle a {
   padding: 10px 5px 10px 10px;
 }
 
-.borger_dk-field_os2web-borger-dk-pre_text {
+.borger_dk-field_os2-borger-dk-pre_text {
   margin: 30px auto;
 }
 
-.borger_dk-field_os2web-borger-dk-post_text {
+.borger_dk-field_os2-borger-dk-post_text {
   margin: 30px auto;
 }
 
@@ -75,31 +75,31 @@ div.microArticle a {
 
 .borger_dk-region-stack3 .inside .borger_dk-body.node-body div a:link a:visited,
 .borger_dk-region-stack3 .inside .borger_dk-body.node-body div div ul li p a,
-.borger_dk-region-stack3 .inside .borger_dk-field_os2web-borger-dk-legislati div a {
+.borger_dk-region-stack3 .inside .borger_dk-field_os2-borger-dk-legislati div a {
   color: #2d2d2d;
   font-size: 13px;
 /*  list-style-type: disc;
   text-decoration: underline;*/
 }
-.borger_dk-region-stack4 .inside .borger_dk-field_os2web-borger-dk-recommend ul li a,
-.borger_dk-region-stack4 .inside .borger_dk-field_os2web-borger-dk-shortlist ul li a {
+.borger_dk-region-stack4 .inside .borger_dk-field_os2-borger-dk-recommend ul li a,
+.borger_dk-region-stack4 .inside .borger_dk-field_os2-borger-dk-shortlist ul li a {
   color: #2d2d2d;
   font-size: 13px;
   line-height: 20px;
  /* list-style-type: disc;
   text-decoration: underline;*/
 }
-.borger_dk-field_os2web-borger-dk-legislati {
+.borger_dk-field_os2-borger-dk-legislati {
   margin-top: 30px;
 }
 
-.borger_dk-field_os2web-borger-dk-shortlist {
+.borger_dk-field_os2-borger-dk-shortlist {
   margin-top: 20px; 
 }
 
-.borger_dk-field_os2web-borger-dk-legislati h3,
-.borger_dk-field_os2web-borger-dk-recommend h3,
-.borger_dk-field_os2web-borger-dk-shortlist h3 {
+.borger_dk-field_os2-borger-dk-legislati h3,
+.borger_dk-field_os2-borger-dk-recommend h3,
+.borger_dk-field_os2-borger-dk-shortlist h3 {
   border-bottom: 1px solid #C3C3C3;
   font-family: "myriad-pro",Arial,Helvetica,sans-serif;
   font-size: 20px;
@@ -107,18 +107,18 @@ div.microArticle a {
   padding-bottom: 10px;
 }
 
-.borger_dk-field_os2web-borger-dk-recommend h4 {
+.borger_dk-field_os2-borger-dk-recommend h4 {
   font-family: "myriad-pro",Arial,Helvetica,sans-serif;
   font-size: 18px;
   font-weight: 300;
 }
-.borger_dk-field_os2web-borger-dk-legislati p {
+.borger_dk-field_os2-borger-dk-legislati p {
   padding-top: 10px;
 }
 
-.borger_dk-field_os2web-borger-dk-legislati,
-.borger_dk-field_os2web-borger-dk-recommend,
-.borger_dk-field_os2web-borger-dk-shortlist {
+.borger_dk-field_os2-borger-dk-legislati,
+.borger_dk-field_os2-borger-dk-recommend,
+.borger_dk-field_os2-borger-dk-shortlist {
   background-color: #F0F0F0;
   border-radius: 7px 7px 7px 7px;
   padding: 10px 15px;
@@ -127,10 +127,10 @@ div.microArticle a {
 .borger_dk-region-stack2 .inside ul,
 .borger_dk-region-stack3 .inside .borger_dk-body.node-body div div ul,
 .borger_dk-region-stack4 .inside ul,
-.borger_dk-field_os2web-borger-dk-legislati ul{
+.borger_dk-field_os2-borger-dk-legislati ul{
   margin: 10px 0 0 20px;
 }
-.borger_dk-field_os2web-borger-dk-byline {
+.borger_dk-field_os2-borger-dk-byline {
   font-family: "myriad-pro",Arial,Helvetica,sans-serif;
   float: right;
   padding-right: 10px;
